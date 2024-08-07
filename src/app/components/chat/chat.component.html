@@ -1,10 +1,23 @@
+<app-header>
+
+</app-header>
+
 <h2>chat works!</h2>
 
-<div>
+<div class="container">
     Connected: {{ isConnected }}
-</div>
+
 
 <form [formGroup]="chatFormGroup" (ngSubmit)="onSubmit()">
     <input type="text" formControlName="message" placeholder="message">
-    <input type="submit" value="Send" [disabled]="chatFormGroup.invalid">
+    <button type="submit" class="btn btn-info" [disabled]="chatFormGroup.invalid">Send</button>
 </form>
+
+<h3>Message</h3>
+
+<ul>
+    <li *ngFor= "let message of messages">
+        {{message.from}} - {{message.message}} - {{message.created}}
+    </li>
+</ul>
+</div>
