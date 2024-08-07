@@ -1,0 +1,10 @@
+<h2>chat works!</h2>
+
+<div>
+    Connected: {{ isConnected }}
+</div>
+
+<form [formGroup]="chatFormGroup" (ngSubmit)="onSubmit()">
+    <input type="text" formControlName="message" placeholder="message">
+    <input type="submit" value="Send" [disabled]="chatFormGroup.invalid">
+</form>
