@@ -1,0 +1,22 @@
+<p>activate-account works!</p>
+
+<div *ngIf="isSuccess === true">
+    <p>Your Account has been activated.</p>
+    <a [routerLink]="['/login']"> click </a>
+</div>
+
+<div *ngIf="isSuccess === false">
+    <p>Unable to activate your account.</p>
+
+    <div *ngIf="isErrorTokenExpired">
+        <p> Token is Expired</p>
+        <button (click)="resendActivateEmail()">Resend Activate Email</button>
+    </div>
+
+    <div *ngIf="isErrorAccountAlreadyActivated">
+        <p>Your Account Account Already</p>
+        <button  (click)="navigateTologinPage()">Login</button>
+    </div>
+    
+    
+</div>

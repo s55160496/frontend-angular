@@ -1,0 +1,22 @@
+{
+    "login":{
+        "email":"เมลล์",
+        "password":"พลาสเวิด"
+    },
+    "testmessage": "ข้อความทดสอบ",
+    "header": {
+        "menu": {
+            "dashboard": "หน้าแรก",
+            "chat": "แชท",
+            "logout": "ออกจากระบบ"
+        }
+    },
+    "user": {
+        "activate": {
+            "already": "บัญชีของคุณได้เปิดการใช้งานอยู่แล้ว",
+            "token": {
+                "expire": "Token หมดอายุ"
+            }
+        }
+    }
+}

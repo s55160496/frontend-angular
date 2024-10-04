@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../../services/user.service';
 import { AppCookieService } from '../../services/app-cookie.service';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-login',
@@ -18,8 +19,11 @@ export class LoginComponent implements OnInit {
   constructor(
     private UserService: UserService,
     private appCokkieService: AppCookieService,
-    private router : Router
-  ) {}
+    private router : Router,
+    private translate : TranslateService
+  ) {
+    this.translate.setDefaultLang('th');
+  }
 
   ngOnInit(): void {}
 
@@ -33,7 +37,8 @@ export class LoginComponent implements OnInit {
     this.UserService.login(email, password).subscribe(
       (response) => {
         this.appCokkieService.setAccessToken(response.token);
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/home']);
+        localStorage.setItem("isLoggedin",response.token);
       },
       (error) => {
       alert(error.error.error);

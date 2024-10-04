@@ -1,0 +1,26 @@
+<!-- <section class="">
+<app-header></app-header>
+  <main class="d-flex">
+    <article>
+      <app-sidebar></app-sidebar>
+    </article>
+    <article class="p-4">
+      <router-outlet></router-outlet>
+    </article>
+    <article>
+      <app-footer></app-footer>
+    </article>
+  </main>
+</section> -->
+
+<app-header></app-header>
+<app-sidebar (collapsedEvent)="receiveCollapsed($event)"></app-sidebar>
+<section class="main-container" [ngClass]="{collapsed: collapedSideBar}">
+  <div class="wrapper" fxLayout="column" fxFlex="grow">
+    <div class="content" fxFlex="grow">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</section>
+
+<app-footer></app-footer>
